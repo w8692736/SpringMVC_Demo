@@ -1,0 +1,38 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringMVC_Demo_4:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringMVC_Demo_4_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringMVC_Demo_4/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringMVC_Demo_4" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/lombok.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-orm-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-jms-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-aop-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/commons-logging-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-messaging-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-tx-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-context-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-context-support-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/aopalliance-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-aspects-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-core-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-beans-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-oxm-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-test-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-instrument-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-expression-5.2.3.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
