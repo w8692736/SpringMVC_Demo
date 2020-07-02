@@ -30,10 +30,6 @@ public class IndexController {
         // 查看是否有保存登录信息
         domain.User currentUser = (domain.User) session.getAttribute("currentUser");
         if (null != currentUser) {
-            view.addObject("userName", currentUser.getName());
-            view.addObject("userID", currentUser.getId());
-            view.addObject("userPrivilege", currentUser.getPrivilege());
-            view.addObject("userLastLogin", currentUser.getLast_login());
             return view;
         }
 

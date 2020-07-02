@@ -14,7 +14,7 @@
 <div class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="location.href='homepage'" class="navbar-brand">测试页面</a>
+            <a href="${pageContext.request.contextPath}/homepage" class="navbar-brand">测试页面</a>
         </div>
 
         <ul class="nav navbar-nav navbar-left">
@@ -26,7 +26,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    你好，${userName}
+                    你好，<%= currentUser.getName()%>
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
@@ -37,7 +37,7 @@
                     <li><a href="sign_out">退出登录</a></li>
                 </ul>
             </li>
-            <li><a href="#">上次登录：${userLastLogin}</a></li>
+            <li><a href="#">上次登录：<%= currentUser.getLast_login()%></a></li>
         </ul>
 
     </div>

@@ -32,19 +32,16 @@ public class LoginController {
      * @author hewm
      * @date : 2020-07-01 17:15:40
      */
-    @RequestMapping("homepage")
+    @RequestMapping(value = "homepage")
     public ModelAndView homepage(HttpSession session) {
-        ModelAndView view = new ModelAndView("error/login_error");
+        ModelAndView view = new ModelAndView("site/homepage");
         domain.User currentUser = (domain.User) session.getAttribute("currentUser");
-        if (null != currentUser) {
-            view.setViewName("site/homepage");
-            view.addObject("userName", currentUser.getName());
-            view.addObject("userID", currentUser.getId());
-            view.addObject("userPrivilege", currentUser.getPrivilege());
-            view.addObject("userLastLogin", currentUser.getLast_login());
+
+        if (null == currentUser) {
+            view.setViewName("error/login_error");
+            view.addObject("error_msg", "请先登录");
         }
 
-        view.addObject("error_msg", "请先登录");
         return view;
     }
 
@@ -58,7 +55,7 @@ public class LoginController {
      * @author hewm
      * @date : 2020-07-01 17:15:40
      */
-    @RequestMapping("sign_in")
+    @RequestMapping(value = "sign_in")
     public ModelAndView loginValidator(HttpSession session,
                                        @RequestParam("input_account") String account,
                                        @RequestParam("input_password") char[] password) {
@@ -110,11 +107,6 @@ public class LoginController {
                 // 调整时间格式
                 String lastLogin = String.valueOf(rs.getTimestamp("LAST_LOGIN"));
                 beCheckedUser.setLast_login(lastLogin.substring(0, lastLogin.length() - 2));
-
-                view.addObject("userName", beCheckedUser.getName());
-                view.addObject("userID", beCheckedUser.getId());
-                view.addObject("userPrivilege", beCheckedUser.getPrivilege());
-                view.addObject("userLastLogin", beCheckedUser.getLast_login());
 
                 // session信息存储七天，记录用户的登录情况
                 session.setMaxInactiveInterval(60 * 60 * 24 * 7);
