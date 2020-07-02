@@ -32,8 +32,7 @@ public class IndexController {
         if (null != currentUser) {
             return view;
         }
-
-
+        
         view = new ModelAndView("login");
         view.addObject("message", "[action: login]");
         view.addObject("title", "登录界面");

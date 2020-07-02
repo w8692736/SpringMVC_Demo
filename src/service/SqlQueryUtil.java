@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @author hewm
  * @date 2020 -06-29 15:38:32
  */
-public class SqlConnector {
+public class SqlQueryUtil {
 
     /**
      * 驱动名

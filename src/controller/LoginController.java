@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import service.SqlQueryUtil;
 
 import javax.servlet.http.HttpSession;
 import java.sql.*;
@@ -89,7 +90,7 @@ public class LoginController {
         beCheckedUser.setPassword(password);
 
         try {
-            Connection conn = new service.SqlConnector().getConnection(account, password);
+            Connection conn = new SqlQueryUtil().getConnection(account, password);
             String sql = "SELECT ID, NAME, ACCOUNT, PASSWORD, PRIVILEGE, LAST_LOGIN FROM USERINFO " +
                     "WHERE ACCOUNT = ? AND PASSWORD = ? ";
             PreparedStatement state = conn.prepareStatement(sql);

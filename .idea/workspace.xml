@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6466fdc-d9f5-4704-80bc-db6da0bb25b6" name="Default Changelist" comment="" />
+    <list default="true" id="e6466fdc-d9f5-4704-80bc-db6da0bb25b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SpringMVC_Demo_4_war_exploded/WEB-INF/classes/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SpringMVC_Demo_4_war_exploded/WEB-INF/classes/controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SpringMVC_Demo_4_war_exploded/WEB-INF/classes/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SpringMVC_Demo_4_war_exploded/WEB-INF/classes/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpringMVC_Demo_4/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpringMVC_Demo_4/controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpringMVC_Demo_4/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpringMVC_Demo_4/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/SqlConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SqlQueryUtil.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +25,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -52,8 +64,11 @@
     <option name="vmOptions" value="-Xms128m -Xmx512m -Duser.language=zh -Dfile.encoding=UTF-8" />
   </component>
   <component name="ProjectId" id="1e4WzLajZtGwNXLDE9aYdLFqxwq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last.edited.regexp" value="Sample Text" />
@@ -77,11 +92,11 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SpringMVC_Demo_4\web\WEB-INF\page" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SpringMVC_Demo_4\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SpringMVC_Demo_4\web\WEB-INF\page" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -321,11 +336,31 @@
       <workItem from="1593590482137" duration="1787000" />
       <workItem from="1593592314730" duration="1769000" />
       <workItem from="1593594145587" duration="1589000" />
+      <workItem from="1593651092494" duration="1749000" />
+      <workItem from="1593654303857" duration="1370000" />
+      <workItem from="1593655699485" duration="1529000" />
+      <workItem from="1593659038366" duration="1782000" />
+      <workItem from="1593660861186" duration="2607000" />
+      <workItem from="1593666118581" duration="1526000" />
+      <workItem from="1593668034036" duration="239000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
