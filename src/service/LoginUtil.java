@@ -35,19 +35,25 @@ public class LoginUtil {
      *
      * @param account  用户账号
      * @param password 用户密码
-     * @return boolean
+     * @return boolean true -
      * @author hewm
      * @date : 2020-07-02 11:13:17
      */
-    public static boolean isInputLegal(String account, char[] password) throws Exception {
+    public static boolean isInputLegal(String account, char[] password) throws LoginException {
 
         if (isOutOfLength(account)) {
             throw new LoginException("账号超出长度范围");
         } else if (isOutOfLength(String.valueOf(password))) {
             throw new LoginException("密码超出长度范围");
+        } else if (account.length() == 0) {
+            throw new LoginException("账号不能为空");
+        } else if (password.length == 0) {
+            throw new LoginException("密码不能为空");
+        } else if (isIllegalCharacters(account)) {
+            throw new LoginException("账号中存在非法字符");
         }
 
-        return false;
+        return true;
     }
 
     /**
@@ -63,18 +69,6 @@ public class LoginUtil {
         return str.length() > MAX_ACCOUNT_LENGTH;
     }
 
-    /**
-     * 描述:
-     * 检查字符串是否为空
-     *
-     * @param str 待检测字符串
-     * @return boolean
-     * @author hewm
-     * @date : 2020-07-02 11:50:42
-     */
-    private static boolean isEmpty(String str) {
-        return "".equalsIgnoreCase(str);
-    }
 
     /**
      * 描述:
@@ -85,16 +79,9 @@ public class LoginUtil {
      * @author hewm
      * @date : 2020-07-02 11:50:42
      */
-    private static boolean isIllegalCharacters(char[] str) {
+    private static boolean isIllegalCharacters(String str) {
         Pattern pattern = Pattern.compile(ILLEGAL_CHARACTER);
-
-        for (char letter : str) {
-            if (pattern.matcher(String.valueOf(letter)).find()) {
-                return false;
-            }
-        }
-
-        return true;
+        return pattern.matcher(str).find();
     }
 
 }

@@ -214,5 +214,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
+  <component name="POM File Configuration" pomFile="" />
 </module>

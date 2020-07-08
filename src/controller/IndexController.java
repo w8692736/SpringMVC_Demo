@@ -2,6 +2,7 @@ package controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,21 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class IndexController {
+
+    @RequestMapping(value = "hello")
+    public ModelAndView sayHello2User(@RequestParam(value = "userName", required = false) String name) {
+        ModelAndView view = new ModelAndView("login");
+        view.addObject("message", ("Hello, " + name));
+        return view;
+    }
+
+    @RequestMapping(value = "bye")
+    public ModelAndView sayBye2User(@RequestParam String userName) {
+        ModelAndView view = new ModelAndView("login");
+        view.addObject("message", ("Good Bye, " + userName));
+        return view;
+    }
+
 
     /**
      * 描述:
@@ -32,7 +48,7 @@ public class IndexController {
         if (null != currentUser) {
             return view;
         }
-        
+
         view = new ModelAndView("login");
         view.addObject("message", "[action: login]");
         view.addObject("title", "登录界面");

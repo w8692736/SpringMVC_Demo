@@ -23,10 +23,22 @@
     </div>
     <hr/>
     <div class="row">
-        <div class="col-md-12">
-            <input type="button" value="进入登录界面"
-                   class="btn btn-block" onclick="location.href='login'"/>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="button" value="进入登录界面"
+                       class="btn btn-block" onclick="location.href='login'"/>
+            </div>
         </div>
+    </div>
+    <br/>
+    <div class="row">
+        <form role="form">
+            <input type="text" name="userName" placeholder="请输入姓名" class="form-control"/>
+            <input class="btn btn-default" id="btn_say_hello"
+                   type="submit" value="打招呼" formaction="hello"/>
+            <input class="btn btn-default" id="btn_say_bye"
+                   type="submit" value="说再见" formaction="bye"/>
+        </form>
     </div>
 </div>
 </body>

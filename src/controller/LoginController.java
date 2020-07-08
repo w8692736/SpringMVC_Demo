@@ -1,11 +1,15 @@
 package controller;
 
+import dao.UserDao;
+import exception.LoginException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import service.SqlQueryUtil;
+import service.LoginUtil;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
 
@@ -17,7 +21,6 @@ import java.sql.*;
  */
 @Controller
 public class LoginController {
-
 
     /**
      * CHECK_PASS
@@ -50,47 +53,46 @@ public class LoginController {
      * 描述:
      *
      * @param session
-     * @param account
-     * @param password
      * @return model and view
      * @author hewm
      * @date : 2020-07-01 17:15:40
      */
     @RequestMapping(value = "sign_in")
-    public ModelAndView loginValidator(HttpSession session,
-                                       @RequestParam("input_account") String account,
-                                       @RequestParam("input_password") char[] password) {
+    public ModelAndView loginValidator(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+        //   @RequestParam("input_account") String account,
+        //   @RequestParam("input_password") char[] password) {
         ModelAndView view = new ModelAndView("error/login_error");
+        String account = request.getParameter("account");
+        String password = request.getParameter("password");
+        domain.User user = new domain.User();
+        user.setAccount(account);
+        user.setPassword(password.toCharArray());
+        user.setName("root");
+        user.setPrivilege("Administrator");
+        user.setLast_login("1970-01-01 00:00:00");
+        session.setAttribute("currentUser", user);
+        if(user != null){
+            view.setViewName("site/homepage");
+            return view;
+        }
+
 
         // 检查用户输入
         try {
-            String resultKey = "pass";
-            String resultValue = "pass";
-            if ("".equalsIgnoreCase(account) || null == account) {
-                resultKey = "account_error";
-                resultValue = "* 账号不能为空";
-            } else if (0 == password.length) {
-                resultKey = "password_error";
-                resultValue = "* 密码不能为空";
+            if (!LoginUtil.isInputLegal(account, password.toCharArray())) {
+                view.setViewName("site/homepage");
             }
-
-            if (!CHECK_PASS.equals(resultKey)) {
-                view.addObject(resultKey, resultValue);
-                view.setViewName("login");
-                return view;
-            }
-
-        } catch (Exception e) {
-            view.addObject("error_msg", "登录信息有误，请重新输入");
+        } catch (LoginException e) {
+            view.addObject("error_msg", e.getMessage());
             return view;
         }
 
         domain.User beCheckedUser = new domain.User();
         beCheckedUser.setAccount(account);
-        beCheckedUser.setPassword(password);
+        beCheckedUser.setPassword(password.toCharArray());
 
         try {
-            Connection conn = new SqlQueryUtil().getConnection(account, password);
+            Connection conn = new UserDao().getConnection(account, password.toCharArray());
             String sql = "SELECT ID, NAME, ACCOUNT, PASSWORD, PRIVILEGE, LAST_LOGIN FROM USERINFO " +
                     "WHERE ACCOUNT = ? AND PASSWORD = ? ";
             PreparedStatement state = conn.prepareStatement(sql);
@@ -110,7 +112,8 @@ public class LoginController {
                 beCheckedUser.setLast_login(lastLogin.substring(0, lastLogin.length() - 2));
 
                 // session信息存储七天，记录用户的登录情况
-                session.setMaxInactiveInterval(60 * 60 * 24 * 7);
+                // 604800 = 60 * 60 * 24 * 7
+                session.setMaxInactiveInterval(604800);
                 session.setAttribute("currentUser", beCheckedUser);
 
                 // 更新上次登录时间
